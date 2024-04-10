@@ -2,6 +2,7 @@ import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
 from collections import defaultdict
+import pandas as pd
 
 
 # Lecture du tableau de contraintes depuis un fichier texte
@@ -31,25 +32,22 @@ class Task:
         self.succesors = []  #tableau de 
         self.rank = None 
 
+        
+
     def add_predecessors(self,task):
         self.predecessors.append(task)
     def add_successors(self,task):
         self.succesors.append(task)
 
 
-
-
-
-
-
-    
 class Graph:
 
     def __init__(self,tabTask):
-        self.tabTask = tabTask #tableau de Task
+        self.tabTask = tabTask #tableau de Task NE CONTIENT PAS ALPHA ET TACHE DE FIN
         self.task_init = Task([0,0]) 
-        self.task_end = Task[(len(tabTask)+1),0] #dernier element de la liste (n+1)
+        self.task_end = Task([(len(self.tabTask)+1),0]) #dernier element de la liste (n+1)
         self.cycle = None
+        self.finaltabTask = [] #init + tabTask + end
 
     def build_predecessors(self,tableau):
         int_predecessors = [ligne[2:] for ligne in tableau ] #creation d'un tableau d'entier de predecesseur
@@ -57,6 +55,17 @@ class Graph:
             for el in int_predecessors[i]:
                 self.tabTask[i].add_predecessors(self.tabTask[el-1])
 
+    def build_finaltabTask(self):
+        self.finaltabTask.append(self.task_init)
+        self.finaltabTask.extend(list(self.tabTask))
+        self.finaltabTask.append(self.task_end)
+
+    def initialisation(self,tableau):
+        self.build_predecessors(tableau)
+        self.build_succesors(tableau)
+        self.build_init()
+        self.build_end()
+        self.build_finaltabTask()
 
     def build_succesors(self,tableau): #creer les successeurs des taches
         int_predecessors = [ligne[2:] for ligne in tableau ] #creation d'un tableau d'entier de predecesseur
@@ -73,7 +82,55 @@ class Graph:
                 self.tabTask[i].add_predecessors(self.task_init)
 
     def build_end(self): #creer la tache de fin et met à jours successeur et predecesseurs
-        pass #en cours
+        without_successors = []
+        for i in range(len(self.tabTask)):
+            if len(self.tabTask[i].succesors)==0: #si une tache n'a pas de successeurs
+                self.task_end.add_predecessors(self.tabTask[i])
+                self.tabTask[i].add_successors(self.task_end)
+
+    """
+    #Fonctionne mais trop lourd
+    #possibilité de refaire le code sans recursive avec 2 for
+    def print_triplet(self,task: Task,liste_print): #Affichage du graphe comme un jeu de triplets parcours en largeur recusifs 
+        print((len(self.tabTask)+2),"sommets")
+
+    
+    def recursive_triplet(self,task: Task,list_print):
+        for i in range(len(task.succesors)):
+            tostr = f"{task.index} -> {task.succesors[i].index} = {task.duration}"
+            list_print.append(tostr)
+            self.print_triplet(task.succesors[i],list_print) #repete la meme chose dans les successeurs 
+    """
+    def print_triplet(self): #etape 1
+        print(len(self.finaltabTask),"sommets")
+        count = 0
+        for i in range(len(self.finaltabTask)):
+            for j in range(len(self.finaltabTask[i].succesors)):
+                print(self.finaltabTask[i].index," -> ",self.finaltabTask[i].succesors[j].index," = ",self.finaltabTask[i].duration)
+                count += 1
+        print(count,"arcs")
+
+    def print_matrix(self): #etape 2
+        matrix = []
+        ligne = []
+        past = False  
+        for i in range(len(self.finaltabTask)):
+            for j in range(len(self.finaltabTask)):
+                past = False
+                for k in self.finaltabTask[i].succesors: #si l'élément est un succéceur
+                    if k.index == j : 
+                        ligne.append(self.finaltabTask[i].duration) #ajout a la matrice de la duree
+                        past = True
+                
+                if (not past): #j n'est aucun des successeurs
+                    ligne.append("*")
+                
+            matrix.append(ligne)
+            ligne = []
+        
+        labels=[i for i in range(len(self.finaltabTask))]
+        df = pd.DataFrame(matrix, columns=labels, index=labels)
+        print(df)
 
 def build_graph(tableau):
     G = nx.DiGraph()
