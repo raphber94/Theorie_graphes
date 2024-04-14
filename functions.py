@@ -132,6 +132,37 @@ class Graph:
         df = pd.DataFrame(matrix, columns=labels, index=labels)
         print(df)
 
+    def is_cyclic(self):#Simple squelette, la fonction n'est pas terminé
+        if not self.cycle :
+            print("Le graph n'est pas cyclique il n'est pas possible de faire cela") 
+            return  
+
+
+    def rank(self):#Simple squelette, la fonction n'est pas terminé
+        if not self.cycle :
+            print("Le graph n'est pas cyclique il n'est pas possible de faire cela") 
+            return         
+
+    def earliest_duration(self):#Simple squelette, la fonction n'est pas terminé
+        if not self.cycle :
+            print("Le graph n'est pas cyclique il n'est pas possible de faire cela") 
+            return 
+
+    def longest_duration(self):#Simple squelette, la fonction n'est pas terminé
+        if not self.cycle :
+            print("Le graph n'est pas cyclique il n'est pas possible de faire cela") 
+            return 
+
+    def overall_margin(self):#Simple squelette, la fonction n'est pas terminé
+        if not self.cycle :
+            print("Le graph n'est pas cyclique il n'est pas possible de faire cela") 
+            return 
+
+    def critical_path(self):#Simple squelette, la fonction n'est pas terminé
+        if not self.cycle :
+            print("Le graph n'est pas cyclique il n'est pas possible de faire cela") 
+            return 
+        
 def build_graph(tableau):
     G = nx.DiGraph()
     for tache in tableau:
@@ -149,4 +180,6 @@ def build_graph(tableau):
     print(G.out_edges(8))
     plt.show()
     return G
+
+
 
