@@ -10,8 +10,9 @@ while True:
     print("Merci de choisir un fichier de test à choisir")
     txt = int(input("Entrez votre choix de test"))
     if (txt>0 and txt <=14): # le choix est correcte on passe au choix suivant 
-
-            tableau = read_file("test.txt") #ne prend pour l'instant pas en compte la variable txt
+            
+            path = "fichier_test/"+str(txt)+".txt"
+            tableau = read_file(path) #ne prend pour l'instant pas en compte la variable txt
 
             ### initialisation graph ###
             tabTask = build_class(tableau)
@@ -25,7 +26,7 @@ while True:
             print("2. Affichage de la matrice d'ordonnacement comme un jeu de triplets ")
             print("3. Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs")
 
-            print("4. Option 4")
+            print("4. Cyclique")
             print("5. Option 5")
             print("6. Quitter")
             choice = input("Entrez votre choix (1-6): ") 
@@ -46,7 +47,10 @@ while True:
         print("Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs")
         graph.print_matrix()
     elif choice == '4':
+        for i in graph.finaltabTask:
+            print(type(i.succesors))
         print("Vous avez choisi l'option 4")
+        print(graph.is_cyclic())
     elif choice == '5':
         print("Vous avez choisi l'option 5")
     elif choice == '6':

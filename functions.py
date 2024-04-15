@@ -3,7 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from collections import defaultdict
 import pandas as pd
-
+import copy
 
 # Lecture du tableau de contraintes depuis un fichier texte
 def read_file(file_name):
@@ -38,6 +38,19 @@ class Task:
         self.predecessors.append(task)
     def add_successors(self,task):
         self.succesors.append(task)
+    def sup_predecessors(self,index):
+        for i in range(len(self.predecessors)):
+            if self.predecessors[i].index == index :
+                self.predecessors.pop(i)
+                break
+    def sup_successors(self,index):
+        for i in range(len(self.succesors)):
+            if self.succesors[i].index == index :
+                self.succesors.pop(i)
+                break
+     
+        
+
 
 
 class Graph:
@@ -48,6 +61,7 @@ class Graph:
         self.task_end = Task([(len(self.tabTask)+1),0]) #dernier element de la liste (n+1)
         self.cycle = None
         self.finaltabTask = [] #init + tabTask + end
+        self.transitive_closure = []
 
     def build_predecessors(self,tableau):
         int_predecessors = [ligne[2:] for ligne in tableau ] #creation d'un tableau d'entier de predecesseur
@@ -132,10 +146,47 @@ class Graph:
         df = pd.DataFrame(matrix, columns=labels, index=labels)
         print(df)
 
-    def is_cyclic(self):#Simple squelette, la fonction n'est pas terminé
-        if not self.cycle :
-            print("Le graph n'est pas cyclique il n'est pas possible de faire cela") 
-            return  
+
+    def is_cyclic(self):
+        cycle = False
+        temp_tabtask = copy.deepcopy(self.finaltabTask)
+        while(len(temp_tabtask)!=0 and not(cycle)):
+            cycle = True # on pas du principe que tant qu'il ne trouve pas d'élément sans successeur cycle = True     
+            for i in range(len(temp_tabtask)):
+                if len(temp_tabtask[i].predecessors) == 0:
+                    cycle = False # s'il trouve un element sans successeur ce n'est pas cyclique
+                    for j in range(len(temp_tabtask[i].succesors)):
+                        temp_tabtask[i].succesors[j].sup_predecessors(temp_tabtask[i].index) #on supprime l'élément
+                    temp_tabtask.pop(i)
+                    break #la taille de la liste a changer pour eviter tout erreur on recommence
+
+        # on sait s'il le graphe est cyclique ou non on cherche maintenant qu'elle est le cycle 
+        if cycle:
+
+
+            cycle_suc = False
+            while(len(temp_tabtask)!=0 and not(cycle_suc)):
+                cycle_suc = True # on pas du principe que tant qu'il ne trouve pas d'élément sans successeur cycle = True     
+                for i in range(len(temp_tabtask)):
+                    if len(temp_tabtask[i].succesors) == 0:
+                        cycle_suc = False # s'il trouve un element sans successeur ce n'est pas cyclique
+                        for j in range(len(temp_tabtask[i].predecessors)):
+                            temp_tabtask[i].predecessors[j].sup_successors(temp_tabtask[i].index) #on supprime l'élément
+                        temp_tabtask.pop(i)
+                        break #la taille de la liste a changer pour eviter tout erreur on recommence
+
+            # affichage
+            for i in temp_tabtask:
+                print(i.index," ->" ,end="")
+        return cycle 
+
+
+        
+
+
+
+
+
 
 
     def rank(self):#Simple squelette, la fonction n'est pas terminé
