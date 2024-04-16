@@ -1,7 +1,4 @@
 from functions import *
-import pandas as pd
-import numpy
-
 
 
 
@@ -52,6 +49,7 @@ while True:
         print("Vous avez choisi l'option 4")
         print(graph.is_cyclic())
     elif choice == '5':
+        graph.rank()
         print("Vous avez choisi l'option 5")
     elif choice == '6':
         print("Sortie du programme...")

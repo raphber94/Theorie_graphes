@@ -160,10 +160,8 @@ class Graph:
                     temp_tabtask.pop(i)
                     break #la taille de la liste a changer pour eviter tout erreur on recommence
 
-        # on sait s'il le graphe est cyclique ou non on cherche maintenant qu'elle est le cycle 
+        # on sait s'il le graphe est cyclique ou non on cherche maintenant quel est le cycle
         if cycle:
-
-
             cycle_suc = False
             while(len(temp_tabtask)!=0 and not(cycle_suc)):
                 cycle_suc = True # on pas du principe que tant qu'il ne trouve pas d'élément sans successeur cycle = True     
@@ -178,21 +176,28 @@ class Graph:
             # affichage
             for i in temp_tabtask:
                 print(i.index," ->" ,end="")
-        return cycle 
+        return cycle
 
-
-        
-
-
-
-
-
-
-
-    def rank(self):#Simple squelette, la fonction n'est pas terminé
-        if not self.cycle :
-            print("Le graph n'est pas cyclique il n'est pas possible de faire cela") 
-            return         
+    def rank(self):
+        if self.is_cyclic():
+            print("Le graph est  cyclique il n'est donc pas possible de faire cela")
+            return
+        else:
+            cpt = 0
+            graph_copy = copy.deepcopy(self)
+            temp = graph_copy.task_init.succesors  # Liste temporaire des taches n'ayant pas de successeurs
+            temp_1 = [""]
+            while (temp_1 != []):
+                temp_1 = []
+                for i in range(len(temp)):
+                    print("La tâche numéro", temp[i].index, "a un rang de ", cpt)
+                    temp[i].rank = cpt
+                    for j in range(len(temp[i].succesors)):
+                        temp[i].succesors[j].sup_predecessors(temp[i].index)
+                        if (len(temp[i].succesors[j].predecessors)==0):
+                            temp_1.append(temp[i].succesors[j]) #Après suppression de la tâche sans prédécesseurs, on prend ses enfants qui n'ont plus de prédecesseurs pour la prochaine iteration
+                temp = temp_1
+                cpt+=1
 
     def earliest_duration(self):#Simple squelette, la fonction n'est pas terminé
         if not self.cycle :
