@@ -183,21 +183,25 @@ class Graph:
             print("Le graph est  cyclique il n'est donc pas possible de faire cela")
             return
         else:
-            cpt = 0
             graph_copy = copy.deepcopy(self)
+            self.task_init.rank=0 #Sommet alpha a un rang de 0
             temp = graph_copy.task_init.succesors  # Liste temporaire des taches n'ayant pas de successeurs
             temp_1 = [""]
+            cpt = 1 #Les rangs commencent à 1 après alpha
             while (temp_1 != []):
                 temp_1 = []
                 for i in range(len(temp)):
                     print("La tâche numéro", temp[i].index, "a un rang de ", cpt)
-                    temp[i].rank = cpt
+                    self.finaltabTask[temp[i].index].rank = cpt
                     for j in range(len(temp[i].succesors)):
                         temp[i].succesors[j].sup_predecessors(temp[i].index)
                         if (len(temp[i].succesors[j].predecessors)==0):
                             temp_1.append(temp[i].succesors[j]) #Après suppression de la tâche sans prédécesseurs, on prend ses enfants qui n'ont plus de prédecesseurs pour la prochaine iteration
                 temp = temp_1
                 cpt+=1
+
+            for i in self.finaltabTask:
+                print("La tâche numéro", i.index, "a un rang de ", cpt)
 
     def earliest_duration(self):#Simple squelette, la fonction n'est pas terminé
         if not self.cycle :
