@@ -30,8 +30,10 @@ class Task:
         self.duration = ligne[1]
         self.predecessors = [] # tableau de Task
         self.succesors = []  #tableau de 
-        self.rank = None 
-
+        self.rank = None
+        self.earliest_date = None
+        self.latest_date = None
+        self.margin = None
         
 
     def add_predecessors(self,task):
@@ -179,10 +181,6 @@ class Graph:
         return cycle
 
     def rank(self):
-        if self.is_cyclic():
-            print("Le graph est  cyclique il n'est donc pas possible de faire cela")
-            return
-        else:
             graph_copy = copy.deepcopy(self)
             self.task_init.rank=0 #Sommet alpha a un rang de 0
             temp = graph_copy.task_init.succesors  # Liste temporaire des taches n'ayant pas de successeurs
@@ -191,7 +189,6 @@ class Graph:
             while (temp_1 != []):
                 temp_1 = []
                 for i in range(len(temp)):
-                    print("La tâche numéro", temp[i].index, "a un rang de ", cpt)
                     self.finaltabTask[temp[i].index].rank = cpt
                     for j in range(len(temp[i].succesors)):
                         temp[i].succesors[j].sup_predecessors(temp[i].index)
@@ -200,23 +197,44 @@ class Graph:
                 temp = temp_1
                 cpt+=1
 
-            for i in self.finaltabTask:
-                print("La tâche numéro", i.index, "a un rang de ", cpt)
+            #for i in self.finaltabTask:
+                #print("La tâche numéro", i.index, "a un rang de ", i.rank)
 
-    def earliest_duration(self):#Simple squelette, la fonction n'est pas terminé
-        if not self.cycle :
-            print("Le graph n'est pas cyclique il n'est pas possible de faire cela") 
-            return 
+    def earliest_date(self):#Il faut d'abord définir les rangs des tâches avant de lancer l'ordonnancement
+        task_sorted_by_rank = sorted(self.finaltabTask, key=lambda x: x.rank) # On créé une liste qui trie les tâches par ordre croissant de rang
+        for i in task_sorted_by_rank:
+            if len(i.predecessors)==0:
+                i.earliest_date=0
+            else:
+                temp_earliest_date = [] #Liste temporaire de la date la plus tôt
+                for j in i.predecessors:
+                    temp_earliest_date.append(j.earliest_date+j.duration) #Pour la date la plus tôt on fait la liste des tâches au plus tôt des prédecesseurs + leur durée
+                i.earliest_date = max(temp_earliest_date) #Et on prend le max pour la tâche suivante
 
-    def longest_duration(self):#Simple squelette, la fonction n'est pas terminé
-        if not self.cycle :
-            print("Le graph n'est pas cyclique il n'est pas possible de faire cela") 
-            return 
+        #for i in self.finaltabTask:
+            #print("La tâche numéro", i.index, "a une date minimale de ", i.earliest_date)
 
-    def overall_margin(self):#Simple squelette, la fonction n'est pas terminé
-        if not self.cycle :
-            print("Le graph n'est pas cyclique il n'est pas possible de faire cela") 
-            return 
+
+
+    def latest_date(self):#Il faut d'abord définir les rangs et les dates au + tot des tâches avant de lancer cette fonction
+        task_sorted_by_rank = sorted(self.finaltabTask, key=lambda x: x.rank, reverse=True)  # On créé une liste qui trie les tâches par ordre décroissant de rang
+        for i in task_sorted_by_rank:
+            if len(i.succesors) == 0:
+                i.latest_date = i.earliest_date #On considère que la date au plus tard du projet est égal à sa date de fin au plus tôt
+            else:
+                temp_latest_date = []  # Liste temporaire de la date au plus tard
+                for j in i.succesors:
+                    temp_latest_date.append(j.latest_date - i.duration)  # Pour la date au plus tard on fait la liste des tâches au plus tard des successeurs - la durée de la tache courante
+                i.latest_date = min(temp_latest_date)  # Et on prend le min des tâches au plus tard suivantes
+
+        #for i in self.finaltabTask:
+            #print("La tâche numéro", i.index, "a une date maximale de ", i.latest_date)
+
+    def margin(self):#Il faut avoir lancé les fonctions earliest_date et latest_date avant d'exécuter cette fonction
+        for i in self.finaltabTask:
+            i.margin= i.latest_date-i.earliest_date
+            #print("La tâche numéro", i.index, "a une marge de ", i.margin)
+
 
     def critical_path(self):#Simple squelette, la fonction n'est pas terminé
         if not self.cycle :
