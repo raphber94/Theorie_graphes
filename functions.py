@@ -3,7 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import pandas as pd
 import copy
-
+from PIL import Image
 # Lecture du tableau de contraintes depuis un fichier texte
 def read_file(file_name):
     tableau = []
@@ -65,6 +65,8 @@ class Graph:
         self.transitive_closure = []
         self.critical_path_tab= [[]]
         self.maximal_critical_path= []
+        self.matrix_ordonnacement = []
+        self.negval = False
 
     def build_predecessors(self,tableau):
         int_predecessors = [ligne[2:] for ligne in tableau ] #creation d'un tableau d'entier de predecesseur
@@ -83,6 +85,7 @@ class Graph:
         self.build_init()
         self.build_end()
         self.build_finaltabTask()
+        self.build_matrix()
 
     def build_succesors(self,tableau): #creer les successeurs des taches
         int_predecessors = [ligne[2:] for ligne in tableau ] #creation d'un tableau d'entier de predecesseur
@@ -105,19 +108,6 @@ class Graph:
                 self.task_end.add_predecessors(self.tabTask[i])
                 self.tabTask[i].add_successors(self.task_end)
 
-    """
-    #Fonctionne mais trop lourd
-    #possibilité de refaire le code sans recursive avec 2 for
-    def print_triplet(self,task: Task,liste_print): #Affichage du graphe comme un jeu de triplets parcours en largeur recusifs 
-        print((len(self.tabTask)+2),"sommets")
-
-    
-    def recursive_triplet(self,task: Task,list_print):
-        for i in range(len(task.succesors)):
-            tostr = f"{task.index} -> {task.succesors[i].index} = {task.duration}"
-            list_print.append(tostr)
-            self.print_triplet(task.succesors[i],list_print) #repete la meme chose dans les successeurs 
-    """
     def print_triplet(self): #etape 1
         print(len(self.finaltabTask),"sommets")
         count = 0
@@ -127,7 +117,7 @@ class Graph:
                 count += 1
         print(count,"arcs")
 
-    def print_matrix(self): #etape 2
+    def build_matrix(self): #etape 2
         matrix = []
         ligne = []
         past = False  
@@ -145,12 +135,17 @@ class Graph:
             matrix.append(ligne)
             ligne = []
         
+
+        self.matrix_ordonnacement = matrix
+
+    
+    def print_matrix(self):
         labels=[i for i in range(len(self.finaltabTask))]
-        df = pd.DataFrame(matrix, columns=labels, index=labels)
+        df = pd.DataFrame(self.matrix_ordonnacement, columns=labels, index=labels)
         print(df)
 
 
-    def is_cyclic(self):
+    def is_cyclic(self,is_print=False):
         cycle = False
         temp_tabtask = copy.deepcopy(self.finaltabTask)
         while(len(temp_tabtask)!=0 and not(cycle)):
@@ -164,7 +159,10 @@ class Graph:
                     break #la taille de la liste a changer pour eviter tout erreur on recommence
 
         # on sait s'il le graphe est cyclique ou non on cherche maintenant quel est le cycle
-        if cycle:
+        if is_print and cycle:
+            print("Ce graphe est cyclique")
+            if not self.negval:
+                print("Ce graphe ne possède pas d'arc négatif.")
             cycle_suc = False
             while(len(temp_tabtask)!=0 and not(cycle_suc)):
                 cycle_suc = True # on pas du principe que tant qu'il ne trouve pas d'élément sans successeur cycle = True     
@@ -176,9 +174,11 @@ class Graph:
                         temp_tabtask.pop(i)
                         break #la taille de la liste a changer pour eviter tout erreur on recommence
 
-            # affichage
-            for i in temp_tabtask:
-                print(i.index," ->" ,end="")
+                # affichage
+                for i in temp_tabtask:
+                    print(i.index," ->" ,end="")
+        elif is_print and (not cycle):
+            print("Le graphe n'est pas cyclique")
         return cycle
 
     def rank(self):
@@ -268,23 +268,3 @@ class Graph:
 
 
         
-def build_graph(tableau):
-    G = nx.DiGraph()
-    for tache in tableau:
-        noeud = tache[0]
-        poids = tache[1]
-        G.add_node(noeud, weight=poids) #Ajoute le noeud avec son poids
-        for dep in tache[2:]:
-            G.add_edge(dep, noeud)
-    # Dessiner le graphe
-    pos = nx.spring_layout(G)  # Position des noeuds utilisant l'algorithme de Fruchterman-Reingold
-    nx.draw(G, pos, with_labels=True, node_size=700, node_color="lightblue", font_size=10, font_weight="bold")
-    edge_labels = dict([((u, v,), d['weight']) for u, v, d in G.edges(data=True) if 'weight' in d])
-
-    nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
-    print(G.out_edges(8))
-    plt.show()
-    return G
-
-
-
