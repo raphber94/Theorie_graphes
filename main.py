@@ -22,16 +22,13 @@ while True:
             print("1. Affichage de la matrice ")
             print("2. Affichage de la matrice d'ordonnacement comme un jeu de triplets ")
             print("3. Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs")
-
             print("4. Cyclique")
             print("5. Rangs des tâches")
             print("6. Graphe d'ordonnancement et dates")
-            print("7. Quitter")
-            choice = input("Entrez votre choix (1-7): ")
-        
+            print("7. Chemins critiques")
+            print("8. Quitter")
+            choice = input("Entrez votre choix (1-8): ")
 
-
-    
 
     if choice == '1':
         print("Affichage de la matrice")
@@ -73,8 +70,13 @@ while True:
             graph.earliest_date()
             graph.latest_date()
             graph.margin()
-            graph.critical_path()
+            graph.critical_path(temp_critical_path=[])
+            graph.final_critical_path()
             print(graph.critical_path_tab)
+            print(graph.maximal_critical_path)
+    elif choice == '8':
+        print("Sortie du programme...")
+        break
     else:
         print("Choix invalide")
 
