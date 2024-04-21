@@ -64,6 +64,7 @@ class Graph:
         self.finaltabTask = [] #init + tabTask + end
         self.transitive_closure = []
         self.critical_path_tab= [[]]
+        self.maximal_critical_path= []
 
     def build_predecessors(self,tableau):
         int_predecessors = [ligne[2:] for ligne in tableau ] #creation d'un tableau d'entier de predecesseur
@@ -252,6 +253,18 @@ class Graph:
                         self.critical_path_tab[0]=temp_critical_path
                     else:
                         self.critical_path_tab.append(copy.deepcopy(temp_critical_path))
+
+    def final_critical_path(self):
+        maximal_counter = 0
+        for i in range(len(self.critical_path_tab)):
+            counter=0
+            for j in range(len(self.critical_path_tab[i])-1):
+                counter= counter+self.finaltabTask[j].duration
+            if counter>maximal_counter:
+                maximal_counter=counter
+                self.maximal_critical_path=self.critical_path_tab[i]
+
+
 
 
         
