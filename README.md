@@ -4,12 +4,13 @@ Ce projet implémente un système de gestion de tâches avec des contraintes de 
 ![alt text](https://github.com/raphber94/Theorie_graphes/blob/main/graph_layout/14.png)
 
 (pour le txt 14 )
-
+```bash
 1 1
 2 2
 3 3 1
 4 4 1 2
 5 5 2 4
+```
 
 avec pour 1er élèment la tache le 2nd la durée et les autres ses prédecesseurs
 ## Fonctionnalités
