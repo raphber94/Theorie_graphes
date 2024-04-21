@@ -1,0 +1,247 @@
+Entrez votre choix (1-9):
+ 1
+Affichage de la matrice
+
+[1, 1]
+[2, 1, 1, 4]
+[3, 4, 2]
+[4, 2, 1, 5]
+[5, 5, 1]
+[6, 6, 4, 5]
+[7, 3, 3, 5]
+[8, 0, 2, 4, 6, 7]
+Merci de choisir un fichier de test à choisir
+Entrez votre choix de test 11
+
+Menu Principal
+Tapez le numéro de l'option que vous souhaitez choisir:
+1. Affichage de la matrice
+2. Affichage de la matrice d'ordonnacement comme un jeu de triplets
+3. Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs
+4. Cyclique
+5. Rangs des tâches
+6. Graphe d'ordonnancement et dates
+7. Chemins critiques
+8. Afficher le graphe graphiquement
+9. Quitter
+
+Entrez votre choix (1-9):
+ 2
+Affichage de la matrice d'ordonnacement comme un jeu de triplets 
+
+10 sommets
+0  ->  1  =  0
+1  ->  2  =  1
+1  ->  4  =  1
+1  ->  5  =  1
+2  ->  3  =  1
+2  ->  8  =  1
+3  ->  7  =  4
+4  ->  2  =  2
+4  ->  6  =  2
+4  ->  8  =  2
+5  ->  4  =  5
+5  ->  6  =  5
+5  ->  7  =  5
+6  ->  8  =  6
+7  ->  8  =  3
+8  ->  9  =  0
+16 arcs
+Merci de choisir un fichier de test à choisir
+Entrez votre choix de test 11
+
+Menu Principal
+Tapez le numéro de l'option que vous souhaitez choisir:
+1. Affichage de la matrice
+2. Affichage de la matrice d'ordonnacement comme un jeu de triplets
+3. Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs
+4. Cyclique
+5. Rangs des tâches
+6. Graphe d'ordonnancement et dates
+7. Chemins critiques
+8. Afficher le graphe graphiquement
+9. Quitter
+
+Entrez votre choix (1-9):
+ 3
+Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs
+
+   0  1  2  3  4  5  6  7  8  9
+0  *  0  *  *  *  *  *  *  *  *
+1  *  *  1  *  1  1  *  *  *  *
+2  *  *  *  1  *  *  *  *  1  *
+3  *  *  *  *  *  *  *  4  *  *
+4  *  *  2  *  *  *  2  *  2  *
+5  *  *  *  *  5  *  5  5  *  *
+6  *  *  *  *  *  *  *  *  6  *
+7  *  *  *  *  *  *  *  *  3  *
+8  *  *  *  *  *  *  *  *  *  0
+9  *  *  *  *  *  *  *  *  *  *
+Merci de choisir un fichier de test à choisir
+Entrez votre choix de test 11
+
+Menu Principal
+Tapez le numéro de l'option que vous souhaitez choisir:
+1. Affichage de la matrice
+2. Affichage de la matrice d'ordonnacement comme un jeu de triplets
+3. Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs
+4. Cyclique
+5. Rangs des tâches
+6. Graphe d'ordonnancement et dates
+7. Chemins critiques
+8. Afficher le graphe graphiquement
+9. Quitter
+
+Entrez votre choix (1-9):
+ 4
+Vous avez choisi l'option 4 
+
+Le graphe n'est pas cyclique
+Merci de choisir un fichier de test à choisir
+Entrez votre choix de test 11
+
+Menu Principal
+Tapez le numéro de l'option que vous souhaitez choisir:
+1. Affichage de la matrice
+2. Affichage de la matrice d'ordonnacement comme un jeu de triplets
+3. Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs
+4. Cyclique
+5. Rangs des tâches
+6. Graphe d'ordonnancement et dates
+7. Chemins critiques
+8. Afficher le graphe graphiquement
+9. Quitter
+
+Entrez votre choix (1-9):
+ 5
+Rang du graphes...
+La tâche numéro 0 a un rang de  0
+La tâche numéro 1 a un rang de  1
+La tâche numéro 2 a un rang de  4
+La tâche numéro 3 a un rang de  5
+La tâche numéro 4 a un rang de  3
+La tâche numéro 5 a un rang de  2
+La tâche numéro 6 a un rang de  4
+La tâche numéro 7 a un rang de  6
+La tâche numéro 8 a un rang de  7
+La tâche numéro 9 a un rang de  8
+Merci de choisir un fichier de test à choisir
+Entrez votre choix de test 11
+
+Menu Principal
+Tapez le numéro de l'option que vous souhaitez choisir:
+1. Affichage de la matrice
+2. Affichage de la matrice d'ordonnacement comme un jeu de triplets
+3. Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs
+4. Cyclique
+5. Rangs des tâches
+6. Graphe d'ordonnancement et dates
+7. Chemins critiques
+8. Afficher le graphe graphiquement
+9. Quitter
+
+Entrez votre choix (1-9):
+ 6
+Graphe d'ordonnancement...
+La tâche numéro 0 a un rang de  0
+La tâche numéro 1 a un rang de  1
+La tâche numéro 2 a un rang de  4
+La tâche numéro 3 a un rang de  5
+La tâche numéro 4 a un rang de  3
+La tâche numéro 5 a un rang de  2
+La tâche numéro 6 a un rang de  4
+La tâche numéro 7 a un rang de  6
+La tâche numéro 8 a un rang de  7
+La tâche numéro 9 a un rang de  8
+La tâche numéro 0 a une date minimale de  0
+La tâche numéro 1 a une date minimale de  0
+La tâche numéro 2 a une date minimale de  8
+La tâche numéro 3 a une date minimale de  9
+La tâche numéro 4 a une date minimale de  6
+La tâche numéro 5 a une date minimale de  1
+La tâche numéro 6 a une date minimale de  8
+La tâche numéro 7 a une date minimale de  13
+La tâche numéro 8 a une date minimale de  16
+La tâche numéro 9 a une date minimale de  16
+La tâche numéro 0 a une date maximale de  0
+La tâche numéro 1 a une date maximale de  0
+La tâche numéro 2 a une date maximale de  8
+La tâche numéro 3 a une date maximale de  9
+La tâche numéro 4 a une date maximale de  6
+La tâche numéro 5 a une date maximale de  1
+La tâche numéro 6 a une date maximale de  10
+La tâche numéro 7 a une date maximale de  13
+La tâche numéro 8 a une date maximale de  16
+La tâche numéro 9 a une date maximale de  16
+La tâche numéro 0 a une marge de  0
+La tâche numéro 1 a une marge de  0
+La tâche numéro 2 a une marge de  0
+La tâche numéro 3 a une marge de  0
+La tâche numéro 4 a une marge de  0
+La tâche numéro 5 a une marge de  0
+La tâche numéro 6 a une marge de  2
+La tâche numéro 7 a une marge de  0
+La tâche numéro 8 a une marge de  0
+La tâche numéro 9 a une marge de  0
+Merci de choisir un fichier de test à choisir
+Entrez votre choix de test 11
+
+Menu Principal
+Tapez le numéro de l'option que vous souhaitez choisir:
+1. Affichage de la matrice
+2. Affichage de la matrice d'ordonnacement comme un jeu de triplets
+3. Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs
+4. Cyclique
+5. Rangs des tâches
+6. Graphe d'ordonnancement et dates
+7. Chemins critiques
+8. Afficher le graphe graphiquement
+9. Quitter
+
+Entrez votre choix (1-9):
+ 7
+Chemins critiques
+La tâche numéro 0 a un rang de  0
+La tâche numéro 1 a un rang de  1
+La tâche numéro 2 a un rang de  4
+La tâche numéro 3 a un rang de  5
+La tâche numéro 4 a un rang de  3
+La tâche numéro 5 a un rang de  2
+La tâche numéro 6 a un rang de  4
+La tâche numéro 7 a un rang de  6
+La tâche numéro 8 a un rang de  7
+La tâche numéro 9 a un rang de  8
+La tâche numéro 0 a une date minimale de  0
+La tâche numéro 1 a une date minimale de  0
+La tâche numéro 2 a une date minimale de  8
+La tâche numéro 3 a une date minimale de  9
+La tâche numéro 4 a une date minimale de  6
+La tâche numéro 5 a une date minimale de  1
+La tâche numéro 6 a une date minimale de  8
+La tâche numéro 7 a une date minimale de  13
+La tâche numéro 8 a une date minimale de  16
+La tâche numéro 9 a une date minimale de  16
+La tâche numéro 0 a une date maximale de  0
+La tâche numéro 1 a une date maximale de  0
+La tâche numéro 2 a une date maximale de  8
+La tâche numéro 3 a une date maximale de  9
+La tâche numéro 4 a une date maximale de  6
+La tâche numéro 5 a une date maximale de  1
+La tâche numéro 6 a une date maximale de  10
+La tâche numéro 7 a une date maximale de  13
+La tâche numéro 8 a une date maximale de  16
+La tâche numéro 9 a une date maximale de  16
+La tâche numéro 0 a une marge de  0
+La tâche numéro 1 a une marge de  0
+La tâche numéro 2 a une marge de  0
+La tâche numéro 3 a une marge de  0
+La tâche numéro 4 a une marge de  0
+La tâche numéro 5 a une marge de  0
+La tâche numéro 6 a une marge de  2
+La tâche numéro 7 a une marge de  0
+La tâche numéro 8 a une marge de  0
+La tâche numéro 9 a une marge de  0
+[[0, 1, 2, 3, 7, 8, 9], [0, 1, 2, 8, 9], [0, 1, 4, 2, 3, 7, 8, 9], [0, 1, 4, 2, 8, 9], [0, 1, 4, 8, 9], [0, 1, 5, 4, 2, 3, 7, 8, 9], [0, 1, 5, 4, 2, 8, 9], [0, 1, 5, 4, 8, 9], [0, 1, 5, 7, 8, 9]]
+[0, 1, 5, 4, 2, 3, 7, 8, 9]
+Merci de choisir un fichier de test à choisir
+Entrez votre choix de test 11
