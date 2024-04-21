@@ -1,7 +1,6 @@
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
-from collections import defaultdict
 import pandas as pd
 import copy
 
@@ -64,6 +63,7 @@ class Graph:
         self.cycle = None
         self.finaltabTask = [] #init + tabTask + end
         self.transitive_closure = []
+        self.critical_path_tab= [[]]
 
     def build_predecessors(self,tableau):
         int_predecessors = [ligne[2:] for ligne in tableau ] #creation d'un tableau d'entier de predecesseur
@@ -197,8 +197,8 @@ class Graph:
                 temp = temp_1
                 cpt+=1
 
-            #for i in self.finaltabTask:
-                #print("La tâche numéro", i.index, "a un rang de ", i.rank)
+            for i in self.finaltabTask:
+                print("La tâche numéro", i.index, "a un rang de ", i.rank)
 
     def earliest_date(self):#Il faut d'abord définir les rangs des tâches avant de lancer l'ordonnancement
         task_sorted_by_rank = sorted(self.finaltabTask, key=lambda x: x.rank) # On créé une liste qui trie les tâches par ordre croissant de rang
@@ -211,8 +211,8 @@ class Graph:
                     temp_earliest_date.append(j.earliest_date+j.duration) #Pour la date la plus tôt on fait la liste des tâches au plus tôt des prédecesseurs + leur durée
                 i.earliest_date = max(temp_earliest_date) #Et on prend le max pour la tâche suivante
 
-        #for i in self.finaltabTask:
-            #print("La tâche numéro", i.index, "a une date minimale de ", i.earliest_date)
+        for i in self.finaltabTask:
+            print("La tâche numéro", i.index, "a une date minimale de ", i.earliest_date)
 
 
 
@@ -227,19 +227,33 @@ class Graph:
                     temp_latest_date.append(j.latest_date - i.duration)  # Pour la date au plus tard on fait la liste des tâches au plus tard des successeurs - la durée de la tache courante
                 i.latest_date = min(temp_latest_date)  # Et on prend le min des tâches au plus tard suivantes
 
-        #for i in self.finaltabTask:
-            #print("La tâche numéro", i.index, "a une date maximale de ", i.latest_date)
+        for i in self.finaltabTask:
+            print("La tâche numéro", i.index, "a une date maximale de ", i.latest_date)
 
     def margin(self):#Il faut avoir lancé les fonctions earliest_date et latest_date avant d'exécuter cette fonction
         for i in self.finaltabTask:
             i.margin= i.latest_date-i.earliest_date
-            #print("La tâche numéro", i.index, "a une marge de ", i.margin)
+            print("La tâche numéro", i.index, "a une marge de ", i.margin)
 
 
-    def critical_path(self):#Simple squelette, la fonction n'est pas terminé
-        if not self.cycle :
-            print("Le graph n'est pas cyclique il n'est pas possible de faire cela") 
-            return 
+    def critical_path(self,temp_task=None,temp_critical_path=[]):#Simple squelette, la fonction n'est pas terminé
+        if temp_task==None:
+            temp_task=self.task_init
+            temp_critical_path.append(temp_task.index)
+        for i in temp_task.succesors:
+            if i.margin==0 and len(i.succesors)>0:
+                temp_critical_path.append(i.index)
+                self.critical_path(i,copy.deepcopy(temp_critical_path))
+                temp_critical_path.pop()
+            elif i.margin==0 and len(i.succesors)==0:
+                if (i.index==self.task_end.index):
+                    temp_critical_path.append(i.index)
+                    if(self.critical_path_tab[0]==[]):
+                        self.critical_path_tab[0]=temp_critical_path
+                    else:
+                        self.critical_path_tab.append(copy.deepcopy(temp_critical_path))
+
+
         
 def build_graph(tableau):
     G = nx.DiGraph()
