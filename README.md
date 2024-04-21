@@ -28,6 +28,7 @@ Ce projet nécessite les bibliothèques Python suivantes :
 - `networkx`
 - `matplotlib`
 - `pandas`
+- `PIL`
 
 ## Installation
 
