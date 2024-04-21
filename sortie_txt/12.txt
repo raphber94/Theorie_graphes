@@ -14,23 +14,7 @@ Affichage de la matrice
 [10, 12, 9]
 [11, 2, 6, 8, 10]
 [12, 20, 1, 6]
-Merci de choisir un fichier de test à choisir
-Entrez votre choix de test 12
 
-Menu Principal
-Tapez le numéro de l'option que vous souhaitez choisir:
-1. Affichage de la matrice
-2. Affichage de la matrice d'ordonnacement comme un jeu de triplets
-3. Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs
-4. Cyclique
-5. Rangs des tâches
-6. Graphe d'ordonnancement et dates
-7. Chemins critiques
-8. Afficher le graphe graphiquement
-9. Quitter
-
-Entrez votre choix (1-9):
- 2
 Affichage de la matrice d'ordonnacement comme un jeu de triplets 
 
 14 sommets
@@ -58,23 +42,7 @@ Affichage de la matrice d'ordonnacement comme un jeu de triplets
 11  ->  13  =  2
 12  ->  13  =  20
 23 arcs
-Merci de choisir un fichier de test à choisir
-Entrez votre choix de test 12
 
-Menu Principal
-Tapez le numéro de l'option que vous souhaitez choisir:
-1. Affichage de la matrice
-2. Affichage de la matrice d'ordonnacement comme un jeu de triplets
-3. Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs
-4. Cyclique
-5. Rangs des tâches
-6. Graphe d'ordonnancement et dates
-7. Chemins critiques
-8. Afficher le graphe graphiquement
-9. Quitter
-
-Entrez votre choix (1-9):
- 3
 Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs
 
    0  1  2   3   4  5  6  7  8  9  10  11  12  13
@@ -92,64 +60,18 @@ Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs
 11  *  *  *   *   *  *  *  *  *  *  *   *   *   2
 12  *  *  *   *   *  *  *  *  *  *  *   *   *  20
 13  *  *  *   *   *  *  *  *  *  *  *   *   *   *
-Merci de choisir un fichier de test à choisir
-Entrez votre choix de test 12
 
-Menu Principal
-Tapez le numéro de l'option que vous souhaitez choisir:
-1. Affichage de la matrice
-2. Affichage de la matrice d'ordonnacement comme un jeu de triplets
-3. Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs
-4. Cyclique
-5. Rangs des tâches
-6. Graphe d'ordonnancement et dates
-7. Chemins critiques
-8. Afficher le graphe graphiquement
-9. Quitter
-
-Entrez votre choix (1-9):
- 4
 Vous avez choisi l'option 4 
 
 Ce graphe est cyclique
 Ce graphe ne possède pas d'arc négatif.
-3  ->8  ->9  ->10  ->11  ->3  ->8  ->9  ->10  ->3  ->9  ->10  ->3  ->9  ->10  ->Merci de choisir un fichier de test à choisir
-Entrez votre choix de test 12
+3  ->8  ->9  ->10  ->11  ->3  ->8  ->9  ->10  ->3  ->9  ->10  ->3  ->9  ->10  ->
 
-Menu Principal
-Tapez le numéro de l'option que vous souhaitez choisir:
-1. Affichage de la matrice
-2. Affichage de la matrice d'ordonnacement comme un jeu de triplets
-3. Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs
-4. Cyclique
-5. Rangs des tâches
-6. Graphe d'ordonnancement et dates
-7. Chemins critiques
-8. Afficher le graphe graphiquement
-9. Quitter
 
-Entrez votre choix (1-9):
- 5
 Rang du graphes...
 Le graph est  cyclique il n'est donc pas possible de calculer les rangs
 
-Merci de choisir un fichier de test à choisir
-Entrez votre choix de test 12
 
-Menu Principal
-Tapez le numéro de l'option que vous souhaitez choisir:
-1. Affichage de la matrice
-2. Affichage de la matrice d'ordonnacement comme un jeu de triplets
-3. Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs
-4. Cyclique
-5. Rangs des tâches
-6. Graphe d'ordonnancement et dates
-7. Chemins critiques
-8. Afficher le graphe graphiquement
-9. Quitter
-
-Entrez votre choix (1-9):
- 6
 Graphe d'ordonnancement...
 Impossible de faire de ce graphe un graphe d'ordonnancement car il est cyclique
 

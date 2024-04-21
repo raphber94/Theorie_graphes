@@ -1,0 +1,217 @@
+Merci de choisir un fichier de test à choisir
+Entrez votre choix de test 2
+
+
+Affichage de la matrice
+
+[1, 2]
+[2, 5]
+[3, 4, 1]
+[4, 1, 3]
+[5, 9, 4, 6, 8]
+[6, 2, 1, 2]
+[7, 5, 6]
+[8, 5, 7]
+[9, 9, 8]
+[10, 2, 9]
+[11, 19, 6]
+[12, 5, 7, 8, 9, 10]
+[13, 1, 6, 11]
+
+Affichage de la matrice d'ordonnacement comme un jeu de triplets 
+
+15 sommets
+0  ->  1  =  0
+0  ->  2  =  0
+1  ->  3  =  2
+1  ->  6  =  2
+2  ->  6  =  5
+3  ->  4  =  4
+4  ->  5  =  1
+5  ->  14  =  9
+6  ->  5  =  2
+6  ->  7  =  2
+6  ->  11  =  2
+6  ->  13  =  2
+7  ->  8  =  5
+7  ->  12  =  5
+8  ->  5  =  5
+8  ->  9  =  5
+8  ->  12  =  5
+9  ->  10  =  9
+9  ->  12  =  9
+10  ->  12  =  2
+11  ->  13  =  19
+12  ->  14  =  5
+13  ->  14  =  1
+23 arcs
+
+Affichage de la matrice d’ordonnancement sous forme de matrice des valeurs
+
+   0  1  2  3  4  5  6  7  8  9  10 11 12  13 14
+0   *  0  0  *  *  *  *  *  *  *  *  *  *   *  *
+1   *  *  *  2  *  *  2  *  *  *  *  *  *   *  *
+2   *  *  *  *  *  *  5  *  *  *  *  *  *   *  *
+3   *  *  *  *  4  *  *  *  *  *  *  *  *   *  *
+4   *  *  *  *  *  1  *  *  *  *  *  *  *   *  *
+5   *  *  *  *  *  *  *  *  *  *  *  *  *   *  9
+6   *  *  *  *  *  2  *  2  *  *  *  2  *   2  *
+7   *  *  *  *  *  *  *  *  5  *  *  *  5   *  *
+8   *  *  *  *  *  5  *  *  *  5  *  *  5   *  *
+9   *  *  *  *  *  *  *  *  *  *  9  *  9   *  *
+10  *  *  *  *  *  *  *  *  *  *  *  *  2   *  *
+11  *  *  *  *  *  *  *  *  *  *  *  *  *  19  *
+12  *  *  *  *  *  *  *  *  *  *  *  *  *   *  5
+13  *  *  *  *  *  *  *  *  *  *  *  *  *   *  1
+14  *  *  *  *  *  *  *  *  *  *  *  *  *   *  *
+
+
+Le graphe n'est pas cyclique
+Merci de choisir un fichier de test à choisir
+Entrez votre choix de test 2
+
+Rang du graphes...
+La tâche numéro 0 a un rang de  0
+La tâche numéro 1 a un rang de  1
+La tâche numéro 2 a un rang de  1
+La tâche numéro 3 a un rang de  2
+La tâche numéro 4 a un rang de  3
+La tâche numéro 5 a un rang de  5
+La tâche numéro 6 a un rang de  2
+La tâche numéro 7 a un rang de  3
+La tâche numéro 8 a un rang de  4
+La tâche numéro 9 a un rang de  5
+La tâche numéro 10 a un rang de  6
+La tâche numéro 11 a un rang de  3
+La tâche numéro 12 a un rang de  7
+La tâche numéro 13 a un rang de  4
+La tâche numéro 14 a un rang de  8
+
+
+
+Graphe d'ordonnancement...
+La tâche numéro 0 a un rang de  0
+La tâche numéro 1 a un rang de  1
+La tâche numéro 2 a un rang de  1
+La tâche numéro 3 a un rang de  2
+La tâche numéro 4 a un rang de  3
+La tâche numéro 5 a un rang de  5
+La tâche numéro 6 a un rang de  2
+La tâche numéro 7 a un rang de  3
+La tâche numéro 8 a un rang de  4
+La tâche numéro 9 a un rang de  5
+La tâche numéro 10 a un rang de  6
+La tâche numéro 11 a un rang de  3
+La tâche numéro 12 a un rang de  7
+La tâche numéro 13 a un rang de  4
+La tâche numéro 14 a un rang de  8
+La tâche numéro 0 a une date minimale de  0
+La tâche numéro 1 a une date minimale de  0
+La tâche numéro 2 a une date minimale de  0
+La tâche numéro 3 a une date minimale de  2
+La tâche numéro 4 a une date minimale de  6
+La tâche numéro 5 a une date minimale de  17
+La tâche numéro 6 a une date minimale de  5
+La tâche numéro 7 a une date minimale de  7
+La tâche numéro 8 a une date minimale de  12
+La tâche numéro 9 a une date minimale de  17
+La tâche numéro 10 a une date minimale de  26
+La tâche numéro 11 a une date minimale de  7
+La tâche numéro 12 a une date minimale de  28
+La tâche numéro 13 a une date minimale de  26
+La tâche numéro 14 a une date minimale de  33
+La tâche numéro 0 a une date maximale de  0
+La tâche numéro 1 a une date maximale de  3
+La tâche numéro 2 a une date maximale de  0
+La tâche numéro 3 a une date maximale de  19
+La tâche numéro 4 a une date maximale de  23
+La tâche numéro 5 a une date maximale de  24
+La tâche numéro 6 a une date maximale de  5
+La tâche numéro 7 a une date maximale de  7
+La tâche numéro 8 a une date maximale de  12
+La tâche numéro 9 a une date maximale de  17
+La tâche numéro 10 a une date maximale de  26
+La tâche numéro 11 a une date maximale de  13
+La tâche numéro 12 a une date maximale de  28
+La tâche numéro 13 a une date maximale de  32
+La tâche numéro 14 a une date maximale de  33
+La tâche numéro 0 a une marge de  0
+La tâche numéro 1 a une marge de  3
+La tâche numéro 2 a une marge de  0
+La tâche numéro 3 a une marge de  17
+La tâche numéro 4 a une marge de  17
+La tâche numéro 5 a une marge de  7
+La tâche numéro 6 a une marge de  0
+La tâche numéro 7 a une marge de  0
+La tâche numéro 8 a une marge de  0
+La tâche numéro 9 a une marge de  0
+La tâche numéro 10 a une marge de  0
+La tâche numéro 11 a une marge de  6
+La tâche numéro 12 a une marge de  0
+La tâche numéro 13 a une marge de  6
+La tâche numéro 14 a une marge de  0
+
+Chemins critiques
+La tâche numéro 0 a un rang de  0
+La tâche numéro 1 a un rang de  1
+La tâche numéro 2 a un rang de  1
+La tâche numéro 3 a un rang de  2
+La tâche numéro 4 a un rang de  3
+La tâche numéro 5 a un rang de  5
+La tâche numéro 6 a un rang de  2
+La tâche numéro 7 a un rang de  3
+La tâche numéro 8 a un rang de  4
+La tâche numéro 9 a un rang de  5
+La tâche numéro 10 a un rang de  6
+La tâche numéro 11 a un rang de  3
+La tâche numéro 12 a un rang de  7
+La tâche numéro 13 a un rang de  4
+La tâche numéro 14 a un rang de  8
+La tâche numéro 0 a une date minimale de  0
+La tâche numéro 1 a une date minimale de  0
+La tâche numéro 2 a une date minimale de  0
+La tâche numéro 3 a une date minimale de  2
+La tâche numéro 4 a une date minimale de  6
+La tâche numéro 5 a une date minimale de  17
+La tâche numéro 6 a une date minimale de  5
+La tâche numéro 7 a une date minimale de  7
+La tâche numéro 8 a une date minimale de  12
+La tâche numéro 9 a une date minimale de  17
+La tâche numéro 10 a une date minimale de  26
+La tâche numéro 11 a une date minimale de  7
+La tâche numéro 12 a une date minimale de  28
+La tâche numéro 13 a une date minimale de  26
+La tâche numéro 14 a une date minimale de  33
+La tâche numéro 0 a une date maximale de  0
+La tâche numéro 1 a une date maximale de  3
+La tâche numéro 2 a une date maximale de  0
+La tâche numéro 3 a une date maximale de  19
+La tâche numéro 4 a une date maximale de  23
+La tâche numéro 5 a une date maximale de  24
+La tâche numéro 6 a une date maximale de  5
+La tâche numéro 7 a une date maximale de  7
+La tâche numéro 8 a une date maximale de  12
+La tâche numéro 9 a une date maximale de  17
+La tâche numéro 10 a une date maximale de  26
+La tâche numéro 11 a une date maximale de  13
+La tâche numéro 12 a une date maximale de  28
+La tâche numéro 13 a une date maximale de  32
+La tâche numéro 14 a une date maximale de  33
+La tâche numéro 0 a une marge de  0
+La tâche numéro 1 a une marge de  3
+La tâche numéro 2 a une marge de  0
+La tâche numéro 3 a une marge de  17
+La tâche numéro 4 a une marge de  17
+La tâche numéro 5 a une marge de  7
+La tâche numéro 6 a une marge de  0
+La tâche numéro 7 a une marge de  0
+La tâche numéro 8 a une marge de  0
+La tâche numéro 9 a une marge de  0
+La tâche numéro 10 a une marge de  0
+La tâche numéro 11 a une marge de  6
+La tâche numéro 12 a une marge de  0
+La tâche numéro 13 a une marge de  6
+La tâche numéro 14 a une marge de  0
+
+[[0, 2, 6, 7, 8, 9, 10, 12, 14], [0, 2, 6, 7, 8, 9, 12, 14], [0, 2, 6, 7, 8, 12, 14], [0, 2, 6, 7, 12, 14]]
+[0, 2, 6, 7, 8, 9, 10, 12, 14]
