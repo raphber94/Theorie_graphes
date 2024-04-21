@@ -51,7 +51,7 @@ while True:
         print(graph.is_cyclic())
     elif choice == '5':
         print("Rang du graphes...")
-        if graphe.is_cyclic():
+        if graph.is_cyclic():
             print("Le graph est  cyclique il n'est donc pas possible de calculer les rangs")
         else:
             graph.rank()
@@ -65,14 +65,20 @@ while True:
             graph.latest_date()
             graph.margin()
     elif choice== '7':
-        print("Sortie du programme...")
-        break
+        print("Chemins critiques")
+        if graph.is_cyclic():
+            print("Impossible de faire de ce graphe un graphe d'ordonnancement car il est cyclique")
+        else:
+            graph.rank()
+            graph.earliest_date()
+            graph.latest_date()
+            graph.margin()
+            graph.critical_path()
+            print(graph.critical_path_tab)
     else:
         print("Choix invalide")
 
 
 
 
-
-### Print 
 
