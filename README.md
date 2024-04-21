@@ -1,7 +1,7 @@
 # Projet Theorie des graphes
 
 Ce projet implémente un système de gestion de tâches avec des contraintes de précédence et de durée, utilisant un graphe pour visualiser et analyser les dépendances entre tâches.
-
+![alt text](https://github.com/raphber94/Theorie_graphes/blob/main/graph_layout/14.png)
 ## Fonctionnalités
 
 - Lecture des tâches et de leurs contraintes à partir d'un fichier txt.
