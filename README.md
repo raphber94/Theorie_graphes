@@ -2,12 +2,22 @@
 
 Ce projet implémente un système de gestion de tâches avec des contraintes de précédence et de durée, utilisant un graphe pour visualiser et analyser les dépendances entre tâches.
 ![alt text](https://github.com/raphber94/Theorie_graphes/blob/main/graph_layout/14.png)
+
+(pour le txt 14 )
+
+1 1
+2 2
+3 3 1
+4 4 1 2
+5 5 2 4
+
+avec pour 1er élèment la tache le 2nd la durée et les autres ses prédecesseurs
 ## Fonctionnalités
 
 - Lecture des tâches et de leurs contraintes à partir d'un fichier txt.
-- Construction d'un graphe de tâches incluant des nœuds pour chaque tâche et des arêtes représentant les contraintes de précédence.
-- Analyse de la possibilité de cycles dans le graphe, ce qui pourrait indiquer des contraintes de précédence conflictuelles.
-- Calcul du rangs de tous les sommets du graphes Calcul des dates les plus tôt et les plus tard de chaque tâche, les marges, Ainsi que le calcul de chemin(s) critique(s).
+- Construction d'un graphe de tâches incluant des nœuds pour chaque tâche et des arêtes représentant les durées de précédence.
+- Analyse de la possibilité de cycles dans le graphe
+- Calcul du rangs de tous les tâches du graphes, calcul des dates les plus tôt et les plus tard de chaque tâche, les marges, Ainsi que le calcul de(s) chemin(s) critique(s).
 - Visualisation du graphe avec les durées des tâches et les relations de dépendance.
 
 ## Dépendances
